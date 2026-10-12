@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KW Reformer Pilates · 1:1 Reformer Pilates in Battersea, London</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f4efe7'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='44' font-weight='500' fill='%233a352f' text-anchor='middle'%3EKW%3C/text%3E%3C/svg%3E" />
+<meta name="description" content="KW Reformer Pilates — private, tailored 1:1 reformer Pilates with Kate in Battersea, London. Specialists in prenatal & postnatal reformer Pilates. Rated 5.0 from 14 reviews." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --sand: #f4efe7;
+    --cream: #faf7f1;
+    --clay: #c9a98b;
+    --clay-deep: #b08d6c;
+    --sage: #8a9a7e;
+    --sage-deep: #6f8062;
+    --ink: #3a352f;
+    --ink-soft: #6b6359;
+    --line: #e4dccf;
+    --white: #ffffff;
+    --shadow: 0 18px 50px -28px rgba(58, 53, 47, 0.45);
+    --radius: 22px;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Jost", system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.12; letter-spacing: -0.01em; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { width: min(1140px, 90%); margin-inline: auto; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--clay-deep);
+  }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Nav ---------- */
+  header {
+    position: fixed; inset: 0 0 auto 0; z-index: 50;
+    transition: background .4s ease, box-shadow .4s ease, padding .4s ease;
+    padding: 26px 0;
+  }
+  header.scrolled {
+    background: rgba(250, 247, 241, 0.86);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 var(--line);
+    padding: 16px 0;
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; }
+  /* ---------- Logo lockup (matches KW REFORMER • PILATES mark) ---------- */
+  .logo { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; color: var(--ink); }
+  .logo .kw { font-family: "Cormorant Garamond", serif; font-weight: 600; letter-spacing: .01em; }
+  .logo .word {
+    font-family: "Cormorant Garamond", serif; font-weight: 500; text-transform: uppercase;
+    white-space: nowrap; text-align: center; padding-bottom: .35em; border-bottom: 1px solid currentColor;
+  }
+  .logo .word .dot { font-weight: 600; }
+  .logo.light { color: var(--cream); }
+
+  /* nav variant: compact */
+  .brand { display: inline-flex; }
+  .brand .logo .kw { font-size: 1.7rem; }
+  .brand .logo .word { font-size: .62rem; letter-spacing: .2em; margin-top: 2px; }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); transition: color .25s; }
+  .nav-links a:hover { color: var(--ink); }
+  .btn {
+    display: inline-block; font-family: var(--sans); font-size: .82rem; letter-spacing: .14em;
+    text-transform: uppercase; font-weight: 500; padding: 14px 30px; border-radius: 100px;
+    background: var(--ink); color: var(--cream); transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+    border: none; cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-2px); background: var(--clay-deep); box-shadow: var(--shadow); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--cream); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .nav-toggle span { width: 26px; height: 2px; background: var(--ink); transition: .3s; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; min-height: 100vh; display: flex; align-items: center;
+    padding: 150px 0 90px;
+    background:
+      radial-gradient(120% 90% at 85% 10%, rgba(201,169,139,.22), transparent 55%),
+      radial-gradient(100% 80% at 0% 100%, rgba(138,154,126,.18), transparent 55%),
+      var(--sand);
+    overflow: hidden;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; }
+  .hero .stars { color: var(--clay-deep); letter-spacing: 3px; font-size: .95rem; }
+  .hero h1 { font-size: clamp(2.9rem, 6.5vw, 5.4rem); margin: 22px 0 24px; }
+  .hero h1 em { font-style: italic; color: var(--clay-deep); }
+  .hero p.lead { font-size: 1.18rem; color: var(--ink-soft); max-width: 30ch; margin-bottom: 36px; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .hero-meta { margin-top: 42px; display: flex; gap: 38px; flex-wrap: wrap; }
+  .hero-meta .item .num { font-family: var(--serif); font-size: 2rem; color: var(--ink); }
+  .hero-meta .item .lbl { font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; color: var(--ink-soft); }
+
+  .hero-visual { position: relative; }
+  .hero-visual .photo {
+    aspect-ratio: 4/5; border-radius: 200px 200px 24px 24px; overflow: hidden;
+    box-shadow: var(--shadow); position: relative;
+    background:
+      linear-gradient(160deg, rgba(255,255,255,.25), rgba(176,141,108,.15)),
+      url("https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80") center/cover;
+  }
+  .hero-visual .badge {
+    position: absolute; bottom: -26px; left: -26px; background: var(--white);
+    border-radius: 18px; padding: 18px 22px; box-shadow: var(--shadow); max-width: 230px;
+    display: flex; gap: 14px; align-items: center;
+  }
+  .hero-visual .badge .ring {
+    width: 46px; height: 46px; border-radius: 50%; flex: none;
+    background: conic-gradient(var(--sage) 100%, var(--line) 0); display: grid; place-items: center;
+  }
+  .hero-visual .badge .ring span { width: 36px; height: 36px; border-radius: 50%; background: var(--white); display: grid; place-items: center; font-family: var(--serif); font-size: .95rem; }
+  .hero-visual .badge p { font-size: .8rem; line-height: 1.4; color: var(--ink-soft); }
+  .hero-visual .leaf {
+    position: absolute; top: -30px; right: -10px; width: 96px; height: 96px; opacity: .5;
+    animation: float 7s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-14px) rotate(6deg); } }
+
+  /* ---------- Section shells ---------- */
+  section { padding: 110px 0; }
+  .sec-head { max-width: 640px; margin-bottom: 60px; }
+  .sec-head.center { margin-inline: auto; text-align: center; }
+  .sec-head h2 { font-size: clamp(2rem, 4vw, 3.1rem); margin: 16px 0 18px; }
+  .sec-head p { color: var(--ink-soft); font-size: 1.05rem; }
+
+  /* ---------- About ---------- */
+  .about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+  .about-photo {
+    aspect-ratio: 1/1.1; border-radius: 24px; box-shadow: var(--shadow);
+    background:
+      linear-gradient(180deg, rgba(138,154,126,.08), rgba(176,141,108,.18)),
+      url("https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80") center/cover;
+  }
+  .about-text h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 16px 0 22px; }
+  .about-text p { color: var(--ink-soft); margin-bottom: 18px; }
+  .about-sign { font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: var(--clay-deep); margin-top: 8px; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 4px; }
+  .pill { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; padding: 8px 16px; border-radius: 100px; background: var(--sand); color: var(--ink-soft); border: 1px solid var(--line); }
+
+  /* ---------- Services ---------- */
+  .services { background: linear-gradient(180deg, var(--sand), var(--cream)); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .card {
+    background: var(--white); border-radius: var(--radius); padding: 40px 34px;
+    border: 1px solid var(--line); transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s;
+    display: flex; flex-direction: column;
+  }
+  .card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+  .card .ico { width: 54px; height: 54px; border-radius: 16px; background: var(--sand); display: grid; place-items: center; margin-bottom: 22px; }
+  .card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+  .card p { color: var(--ink-soft); font-size: .98rem; flex: 1; }
+  .card .price { margin-top: 22px; font-family: var(--serif); font-size: 1.15rem; color: var(--clay-deep); padding-top: 18px; border-top: 1px solid var(--line); }
+  .card .price small { font-family: var(--sans); font-size: .78rem; color: var(--ink-soft); letter-spacing: .1em; text-transform: uppercase; }
+
+  /* ---------- Approach / steps ---------- */
+  .approach { background: var(--sage-deep); color: var(--cream); }
+  .approach .eyebrow { color: #d9e0d0; }
+  .approach .sec-head h2 { color: var(--cream); }
+  .approach .sec-head p { color: #dfe5d8; }
+  .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+  .step .n { font-family: var(--serif); font-size: 3rem; color: rgba(255,255,255,.45); line-height: 1; }
+  .step h3 { color: var(--cream); font-size: 1.4rem; margin: 14px 0 10px; }
+  .step p { color: #dfe5d8; font-size: .96rem; }
+
+  /* ---------- Reviews ---------- */
+  .reviews { background: var(--cream); }
+  .rev-top { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 50px; }
+  .rev-score { display: flex; align-items: center; gap: 20px; }
+  .rev-score .big { font-family: var(--serif); font-size: 4rem; line-height: 1; color: var(--ink); }
+  .rev-score .stars { color: var(--clay-deep); letter-spacing: 3px; font-size: 1.1rem; }
+  .rev-score .sub { font-size: .85rem; color: var(--ink-soft); letter-spacing: .04em; }
+  .rev-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .quote {
+    background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 34px 30px; display: flex; flex-direction: column; gap: 18px;
+  }
+  .quote .stars { color: var(--clay-deep); letter-spacing: 2px; font-size: .9rem; }
+  .quote p { color: var(--ink); font-size: 1.02rem; font-family: var(--serif); font-weight: 400; line-height: 1.5; }
+  .quote .who { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+  .quote .av { width: 40px; height: 40px; border-radius: 50%; background: var(--clay); color: #fff; display: grid; place-items: center; font-size: .9rem; font-weight: 500; }
+  .quote .who .nm { font-weight: 500; font-size: .92rem; }
+  .quote .who .dt { font-size: .78rem; color: var(--ink-soft); }
+
+  /* ---------- Contact / Visit ---------- */
+  .visit { background: var(--sand); }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: stretch; }
+  .info-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 44px; box-shadow: var(--shadow); }
+  .info-card h2 { font-size: 2.2rem; margin-bottom: 24px; }
+  .info-row { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .info-row:last-of-type { border-bottom: none; }
+  .info-row .ico { flex: none; width: 38px; height: 38px; border-radius: 10px; background: var(--sand); display: grid; place-items: center; }
+  .info-row .lbl { font-size: .74rem; text-transform: uppercase; letter-spacing: .16em; color: var(--ink-soft); }
+  .info-row .val { font-size: 1.02rem; }
+  .hours-list { list-style: none; font-size: .96rem; }
+  .hours-list li { display: flex; justify-content: space-between; padding: 5px 0; color: var(--ink-soft); }
+  .hours-list li.today { color: var(--ink); font-weight: 500; }
+  .hours-list li .open { color: var(--sage-deep); }
+
+  /* Form */
+  form { display: flex; flex-direction: column; gap: 18px; }
+  .field label { display: block; font-size: .76rem; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-soft); margin-bottom: 8px; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--cream); font-family: var(--sans); font-size: 1rem; color: var(--ink); transition: border .25s, box-shadow .25s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--clay); box-shadow: 0 0 0 3px rgba(201,169,139,.18); }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .form-note { font-size: .82rem; color: var(--ink-soft); }
+  .form-success { display: none; background: rgba(138,154,126,.16); border: 1px solid var(--sage); color: var(--sage-deep); padding: 16px; border-radius: 12px; font-size: .95rem; }
+  .form-success.show { display: block; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--ink); color: #d8d1c6; padding: 70px 0 36px; }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  footer .brand { color: var(--cream); margin-bottom: 16px; }
+  footer p { font-size: .92rem; color: #b3aaa0; max-width: 32ch; }
+  .foot-col h4 { font-family: var(--sans); text-transform: uppercase; letter-spacing: .16em; font-size: .76rem; color: #8f877c; margin-bottom: 16px; font-weight: 500; }
+  .foot-col a { display: block; color: #d8d1c6; font-size: .94rem; padding: 5px 0; transition: color .2s; }
+  .foot-col a:hover { color: var(--clay); }
+  .foot-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: .82rem; color: #8f877c; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .hero-grid, .about-grid, .visit-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { max-width: 420px; margin-inline: auto; }
+    .cards, .steps, .rev-grid, .foot-grid { grid-template-columns: 1fr; }
+    .rev-grid { grid-template-columns: 1fr; }
+    .nav-links { position: fixed; inset: 0 0 0 auto; width: min(300px, 80%); background: var(--cream); flex-direction: column; justify-content: center; padding: 40px; gap: 28px; transform: translateX(100%); transition: transform .4s ease; box-shadow: var(--shadow); }
+    .nav-links.open { transform: none; }
+    .nav-links a { font-size: 1rem; }
+    .nav-toggle { display: flex; z-index: 60; }
+    .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+  @media (min-width: 901px) { .nav-cta { display: inline-block; } }
+  @media (max-width: 560px) {
+    section { padding: 80px 0; }
+    .info-card { padding: 30px; }
+    .hero-visual .badge { left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="KW Reformer Pilates">
+      <span class="logo"><span class="kw">KW</span><span class="word">Reformer<span class="dot">•</span>Pilates</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Sessions</a>
+      <a href="#approach">Approach</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+      <a href="#visit" class="btn nav-cta">Book a session</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <div class="stars">★★★★★ <span style="font-family:var(--sans);font-size:.8rem;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;">&nbsp; 5.0 · 14 reviews</span></div>
+      <h1>Move with <em>intention.</em><br>Strength, tailored<br>to your body.</h1>
+      <p class="lead">Private 1:1 reformer Pilates in Battersea — thoughtfully designed around you, every single session.</p>
+      <div class="hero-cta">
+        <a href="#visit" class="btn">Book your first session</a>
+        <a href="#about" class="btn ghost">Meet Kate</a>
+      </div>
+      <div class="hero-meta">
+        <div class="item"><div class="num">1:1</div><div class="lbl">Private studio</div></div>
+        <div class="item"><div class="num">Pre &amp; Post</div><div class="lbl">Natal certified</div></div>
+        <div class="item"><div class="num">5.0★</div><div class="lbl">Client rated</div></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <svg class="leaf" viewBox="0 0 100 100" fill="none"><path d="M50 6C30 22 18 44 24 70c2 10 9 18 18 22 2-30 10-54 30-72C82 14 66 6 50 6z" fill="#8a9a7e"/><path d="M48 92c-2-30 6-54 26-72" stroke="#6f8062" stroke-width="2"/></svg>
+      <div class="photo"></div>
+      <div class="badge">
+        <div class="ring"><span>5.0</span></div>
+        <p><strong>“Best money I’ve spent.”</strong><br>— verified client review</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal"></div>
+    <div class="about-text reveal">
+      <span class="eyebrow">Your instructor</span>
+      <h2>Hi, I'm Kate.</h2>
+      <p>For me, reformer Pilates is never one-size-fits-all. In my private Battersea studio I work with clients one-to-one, building each session around what your body needs <em>that day</em> — whether you're rebuilding strength, easing back pain, or moving safely through pregnancy.</p>
+      <p>I'm certified in prenatal and postnatal reformer Pilates, and I love guiding clients through every chapter — before, during, and after pregnancy. Expect clear cueing, genuine attention, and a calm space where you can simply focus on you.</p>
+      <div class="pill-row">
+        <span class="pill">Tailored sessions</span>
+        <span class="pill">Prenatal &amp; postnatal</span>
+        <span class="pill">Safe space</span>
+        <span class="pill">Friendly &amp; supportive</span>
+      </div>
+      <p class="about-sign">— Kate</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Sessions</span>
+      <h2>Ways to work together</h2>
+      <p>Every session is private and fully tailored. New to the reformer? We'll start with the fundamentals and build from there.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b08d6c" stroke-width="1.6"><path d="M3 12h18M3 12l3-3M3 12l3 3M21 12l-3-3M21 12l-3 3"/><circle cx="12" cy="12" r="2.4"/></svg>
+        </div>
+        <h3>1:1 Reformer</h3>
+        <p>Undivided attention on the reformer, with a programme built around your goals and adapted in real time. The signature KW experience.</p>
+        <div class="price">From £70 <small>/ session</small></div>
+      </div>
+      <div class="card reveal">
+        <div class="ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b08d6c" stroke-width="1.6"><path d="M12 21c-4-3-7-6-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 4-3 7-7 10z"/></svg>
+        </div>
+        <h3>Prenatal &amp; Postnatal</h3>
+        <p>Safely continue reformer through every trimester and rebuild your core after birth, guided by a certified pre &amp; postnatal specialist.</p>
+        <div class="price">From £75 <small>/ session</small></div>
+      </div>
+      <div class="card reveal">
+        <div class="ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b08d6c" stroke-width="1.6"><circle cx="9" cy="9" r="3"/><circle cx="16" cy="15" r="3"/><path d="M5 21c0-2 2-3 4-3M19 21c0-2-2-3-4-3"/></svg>
+        </div>
+        <h3>Duet Sessions</h3>
+        <p>Train alongside a partner or friend. Shared focus, shared progress — same tailored attention, split between two reformers.</p>
+        <div class="price">From £55 <small>/ person</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPROACH ===== -->
+<section class="approach" id="approach">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The KW approach</span>
+      <h2>What working together looks like</h2>
+      <p>No crowded classes, no guesswork — just a considered, progressive practice that meets you where you are.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">01</div>
+        <h3>We talk first</h3>
+        <p>Every journey starts with a chat about your history, goals, and how your body feels right now — so nothing is generic.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">02</div>
+        <h3>We tailor the work</h3>
+        <p>Each session is designed for the day you arrive on — challenging when you're ready, gentle when you need it.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">03</div>
+        <h3>You feel the change</h3>
+        <p>Clear cueing and steady progression mean stronger movement, better posture, and a calmer, more capable you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="rev-top reveal">
+      <div class="sec-head" style="margin-bottom:0;">
+        <span class="eyebrow">Kind words</span>
+        <h2>Loved by clients</h2>
+      </div>
+      <div class="rev-score">
+        <div class="big">5.0</div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="sub">14 reviews · Google</div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>“I've been doing 1:1 Pilates with Kate for 6 months and genuinely can't recommend her enough. She always tailors each session to what my body needs on the day.”</p>
+        <div class="who"><span class="av">KT</span><div><div class="nm">KT</div><div class="dt">5 months ago</div></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>“Kate has been absolutely instrumental in my Pilates journey — before, during, and after my pregnancy. She makes every class both challenging and completely tailored.”</p>
+        <div class="who"><span class="av">CD</span><div><div class="nm">Charlotte D'Arcy</div><div class="dt">a year ago</div></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>“I found her in my third trimester as I wanted to continue safely with reformer. I loved our sessions — she is so confident and qualified with prenatal.”</p>
+        <div class="who"><span class="av">KM</span><div><div class="nm">Katie Mason</div><div class="dt">a year ago</div></div></div>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:36px;color:var(--ink-soft);">“She also doubles up as a therapist and is just the loveliest person all round!”</p>
+  </div>
+</section>
+
+<!-- ===== VISIT / CONTACT ===== -->
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div class="info-card reveal">
+      <h2>Visit the studio</h2>
+      <div class="info-row">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b08d6c" stroke-width="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 1114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div><div class="lbl">Studio</div><div class="val">4 Bridges Ct Rd<br>London SW11 3GR · Battersea</div></div>
+      </div>
+      <div class="info-row">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b08d6c" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <div style="flex:1;">
+          <div class="lbl">Opening hours</div>
+          <ul class="hours-list">
+            <li class="today"><span>Today (Fri)</span><span class="open">By appointment</span></li>
+            <li><span>Monday</span><span>6:30 am – 7:00 pm</span></li>
+            <li><span>Tue – Fri</span><span>6:30 am – 7:00 pm</span></li>
+            <li><span>Saturday</span><span>8:00 am – 1:00 pm</span></li>
+            <li><span>Sunday</span><span>Closed</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b08d6c" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></div>
+        <div><div class="lbl">Get in touch</div><div class="val">hello@kwreformerpilates.co.uk</div></div>
+      </div>
+      <a href="https://www.google.com/maps/search/?api=1&query=4+Bridges+Ct+Rd+London+SW11+3GR" target="_blank" rel="noopener" class="btn ghost" style="margin-top:24px;">Get directions →</a>
+    </div>
+
+    <div class="info-card reveal">
+      <h2>Book your session</h2>
+      <p style="color:var(--ink-soft);margin-bottom:24px;font-size:.98rem;">Tell me a little about you and what you're hoping for, and I'll be in touch to find a time.</p>
+      <form id="bookingForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required />
+        </div>
+        <div class="field">
+          <label for="interest">I'm interested in</label>
+          <select id="interest" name="interest">
+            <option>1:1 Reformer</option>
+            <option>Prenatal &amp; Postnatal</option>
+            <option>Duet session</option>
+            <option>Not sure yet — happy to chat</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Anything I should know?</label>
+          <textarea id="msg" name="msg" placeholder="Injuries, goals, pregnancy stage, preferred times…"></textarea>
+        </div>
+        <button type="submit" class="btn" style="width:100%;">Request a session</button>
+        <p class="form-note">No payment taken now — this just starts the conversation.</p>
+        <div class="form-success" id="formSuccess">Thank you — your request is in. Kate will be in touch very soon. 🤍</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo light" style="align-items:flex-start;margin-bottom:18px;">
+          <span class="kw" style="font-size:2rem;">KW</span>
+          <span class="word" style="font-size:.62rem;letter-spacing:.28em;margin-top:5px;">Reformer<span class="dot">•</span>Pilates</span>
+        </div>
+        <p>Private, tailored reformer Pilates in Battersea, London. Move with intention — one session at a time.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#about">About Kate</a>
+        <a href="#services">Sessions</a>
+        <a href="#approach">Approach</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <div class="foot-col">
+        <h4>Studio</h4>
+        <a href="https://www.google.com/maps/search/?api=1&query=4+Bridges+Ct+Rd+London+SW11+3GR" target="_blank" rel="noopener">4 Bridges Ct Rd, SW11 3GR</a>
+        <a href="mailto:hello@kwreformerpilates.co.uk">hello@kwreformerpilates.co.uk</a>
+        <a href="#visit">Book a session</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 KW Reformer Pilates · Battersea, London</span>
+      <span>Rated 5.0 ★ from 14 reviews</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile nav
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('active');
+    links.classList.remove('open');
+  }));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 3) * 0.08 + 's';
+    io.observe(el);
+  });
+
+  // Booking form
+  const form = document.getElementById('bookingForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.name.value.trim() || !form.email.value.trim()) {
+      form.reportValidity();
+      return;
+    }
+    success.classList.add('show');
+    form.querySelector('button').textContent = 'Sent ✓';
+    form.querySelector('button').disabled = true;
+    setTimeout(() => success.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+  });
+</script>
+</body>
+</html>
